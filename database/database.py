@@ -1,4 +1,4 @@
-from  sqlite4  import  SQLite4
+from sqlite4 import SQLite4
 
 def get_database_connection():
     """Create a connection to the SQLite database."""
