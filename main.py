@@ -1,8 +1,7 @@
-from database.database import get_database_connection
+from database.database import DataBase
 
 def main():
-    database = get_database_connection()
-    database.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)")
+    db_manager = DataBase()
 
 if __name__ == "__main__":
     main()
