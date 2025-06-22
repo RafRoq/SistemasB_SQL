@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import pandas as pd
 
 class DataBase():
 
@@ -76,22 +77,19 @@ class DataBase():
             print(f"Erro ao obter o melhor cliente: {e}")
             return []
 
-# database.py
+    def query_from_file(self, file_path) -> str:
+        if not os.path.exists(file_path):
+            print(f"Erro: Arquivo de consulta não encontrado em {file_path}")
+            return ''
 
-# --- Como usar ---
-if __name__ == "__main__":
-    # Garanta que a pasta 'queries' exista no mesmo nível do seu script Python
-    # E que 'schema.sql' esteja dentro de 'queries'
-    
-    # Exemplo de uso:
-    db_manager = DataBase()
+        with open(file_path, 'r', encoding='utf-8') as file:
+            query = file.read()
+            return query
 
-    # Você pode agora usar db_manager.conn para obter a conexão e interagir com o DB
-    # Por exemplo:
-    # cursor = db_manager.conn.cursor()
-    # cursor.execute("INSERT INTO Paciente (nome, CPF) VALUES (?, ?)", ("João Silva", "12345678901"))
-    # db_manager.conn.commit()
-    # print("Paciente inserido.")
-
-    # Não se esqueça de fechar a conexão ao final do seu programa
-    db_manager.close_connection()
+    def to_dataframe(self, query) -> pd.DataFrame:
+        try:
+            df = pd.read_sql_query(query, self.conn)
+            return df
+        except sqlite3.Error as e:
+            print(f"Erro ao converter consulta para DataFrame: {e}")
+            return pd.DataFrame()
