@@ -8,9 +8,10 @@ class DataBase():
     MIGRATIONS_DIR = r'queries\migrations'
     conn = None
 
-    def __init__(self):
+    def __init__(self, initialize=True):
         self.get_database_connection()
-        self.initialize_database()
+        if initialize:
+            self.initialize_database()
 
     def get_database_connection(self):
         self.conn = sqlite3.connect(self.DATABASE_NAME)
