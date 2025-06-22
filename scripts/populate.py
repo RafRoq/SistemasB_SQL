@@ -1,3 +1,5 @@
+# FEITO PELO GEMINI PRO
+
 import sqlite3
 import random
 from faker import Faker
@@ -237,7 +239,10 @@ def popular_consulta_e_relacionados(cursor, quantidade, ids_pacientes, ids_medic
         data_hora = fake.date_time_between(start_date='-2y', end_date='+30d')
         valor = round(random.uniform(100.0, 500.0), 2)
         status_consulta = random.choice(status_cons)
-        status_pagamento = random.choice(status_pag)
+        if status_consulta == 'Cancelada':
+            status_pagamento = 'Cancelado'
+        else:
+            status_pagamento = random.choice(status_pag[:-1])
         forma = random.choice(forma_pag)
         data_pagamento = None
         if status_pagamento == 'Pago':
@@ -275,7 +280,10 @@ def popular_exame_e_relacionados(cursor, quantidade, ids_pacientes, ids_tecnicos
         if status_exame != 'Aguardando Coleta':
              data_coleta = fake.date_between(start_date=data_solicitacao, end_date=data_solicitacao + timedelta(days=10))
 
-        status_pagamento = random.choice(status_pag)
+        if status_exame == 'Cancelado':
+            status_pagamento = 'Cancelado'
+        else:
+            status_pagamento = random.choice(status_pag[:-1])
         forma = random.choice(forma_pag)
         data_pagamento = None
         if status_pagamento == 'Pago':
