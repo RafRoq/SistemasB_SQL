@@ -1,4 +1,4 @@
-CREATE VIEW melhor_cliente_f IF NOT AS SELECT
+CREATE VIEW melhor_cliente_f AS SELECT
     p.nome AS "Nome do Paciente",
     COUNT(c.id_consulta) AS "Número de Consultas",
     SUM(c.valor) AS "Total Gasto em Consultas"
