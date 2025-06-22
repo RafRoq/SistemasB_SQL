@@ -1,4 +1,4 @@
-CREATE VIEW devedores_consulta SELECT
+CREATE VIEW devedores_consulta AS SELECT
     p.id_paciente AS "ID do Paciente",
     p.nome AS "Nome do Paciente",
     COUNT(c.id_consulta) AS "Número de Pagamento Pendentes",
