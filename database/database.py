@@ -10,13 +10,13 @@ class DataBase():
     conn = None
 
     def __init__(self, initialize=True, create_views=True):
-        self.get_database_connection()
+        self._get_database_connection()
         if initialize:
-            self.initialize_database()
+            self._initialize_database()
         if create_views:
             self.create_views()
 
-    def get_database_connection(self):
+    def _get_database_connection(self):
         self.conn = sqlite3.connect(self.DATABASE_NAME)
         self.conn.execute("PRAGMA foreign_keys = ON;")
 
@@ -38,7 +38,7 @@ class DataBase():
                 print(f"Erro ao criar view '{sql_file}': {e}")
                 self.conn.rollback()
 
-    def initialize_database(self):
+    def _initialize_database(self):
         if not os.path.exists(self.SCHEMA_FILE):
             print(f"Erro: Arquivo de esquema não encontrado em {self.SCHEMA_FILE}")
             return
