@@ -1,6 +1,6 @@
 -- Tabela de Pacientes
 CREATE TABLE Paciente (
-    id_paciente INTEGER PRIMARY KEY, -- Corrigido para SQLite: INTEGER PRIMARY KEY para auto-incremento
+    id_paciente INTEGER PRIMARY KEY,
     data_nasc DATE,
     nome VARCHAR(100),
     sexo CHAR(1),
@@ -13,7 +13,7 @@ CREATE TABLE Paciente (
 
 -- Tabela de Funcionários
 CREATE TABLE Funcionario (
-    id_funcionario INTEGER PRIMARY KEY, -- Corrigido
+    id_funcionario INTEGER PRIMARY KEY,
     nome VARCHAR(100),
     data_nasc DATE,
     sexo CHAR(1),
@@ -22,7 +22,7 @@ CREATE TABLE Funcionario (
     email VARCHAR(100),
     endereco VARCHAR(200),
     data_admissao DATE,
-    salario REAL -- Corrigido de FLOAT para REAL
+    salario REAL
 );
 
 -- Especializações de Funcionário
@@ -47,9 +47,9 @@ CREATE TABLE Enfermagem (
 
 -- Tabela de Consultas
 CREATE TABLE Consulta (
-    id_consulta INTEGER PRIMARY KEY, -- Corrigido
+    id_consulta INTEGER PRIMARY KEY,
     data_hora DATETIME,
-    valor REAL, -- Corrigido de FLOAT para REAL
+    valor REAL,
     status_consulta VARCHAR(30),
     status_pagamento VARCHAR(30),
     forma_pagamento VARCHAR(30),
@@ -62,7 +62,7 @@ CREATE TABLE Consulta (
 
 -- Tabela de Exames
 CREATE TABLE Exame (
-    id_exame INTEGER PRIMARY KEY, -- Corrigido
+    id_exame INTEGER PRIMARY KEY,
     data_solicitacao DATE,
     data_coleta DATE,
     status_exame VARCHAR(30),
@@ -75,10 +75,10 @@ CREATE TABLE Exame (
 
 -- Tabela de Tipos de Exame
 CREATE TABLE Tipo (
-    id_tipo INTEGER PRIMARY KEY, -- Corrigido
+    id_tipo INTEGER PRIMARY KEY,
     nome VARCHAR(50),
     descricao VARCHAR(200),
-    preco REAL -- Corrigido de FLOAT para REAL
+    preco REAL
 );
 
 -- Tabela associativa Exame_Tipo
@@ -92,7 +92,7 @@ CREATE TABLE Exame_Tipo (
 
 -- Tabela de Receitas
 CREATE TABLE Receita (
-    id_receita INTEGER PRIMARY KEY, -- Corrigido
+    id_receita INTEGER PRIMARY KEY,
     descricao VARCHAR(200),
     data_emissao DATE
 );
