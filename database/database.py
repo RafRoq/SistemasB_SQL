@@ -4,7 +4,7 @@ import os
 class DataBase():
 
     DATABASE_NAME = 'database.db'
-    SCHEMA_FILE = r'queries\schema.sql'
+    SCHEMA_FILE = r'queries\scheme.sql'
     MIGRATIONS_DIR = r'queries\migrations'
     conn = None
 
