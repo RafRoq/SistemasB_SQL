@@ -14,13 +14,13 @@ class DataBase():
         if initialize:
             self._initialize_database()
         if create_views:
-            self.create_views()
+            self._create_views()
 
     def _get_database_connection(self):
         self.conn = sqlite3.connect(self.DATABASE_NAME)
         self.conn.execute("PRAGMA foreign_keys = ON;")
 
-    def create_views(self):
+    def _create_views(self):
         sql_files = [f for f in os.listdir(self.VIEWS_DIR) if f.endswith('.sql')]
         if not sql_files:
             print("Nenhum arquivo de view encontrado na pasta 'views'.")
