@@ -3,7 +3,7 @@
 import sqlite3
 import random
 from faker import Faker
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 # Inicializa o Faker para gerar dados em português do Brasil
 fake = Faker('pt_BR')

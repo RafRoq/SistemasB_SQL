@@ -1,5 +1,4 @@
 from database.database import DataBase
-import pandas as pd
 import os
 
 def main():
