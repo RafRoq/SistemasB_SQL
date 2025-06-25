@@ -1,4 +1,4 @@
---não testei 
+
 INSERT INTO Paciente (
     data_nasc, nome, sexo, CPF, telefone, email, endereco, convenio
 )
